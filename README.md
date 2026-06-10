@@ -15,15 +15,20 @@ and local sound-sketch generation.
 
 ## Working on this project with GSD
 
-1. Install GSD (verify the current trusted repo first — governance moved to
-   open-gsd in 2026; check https://www.opengsd.net):
-   ```bash
-   npx get-shit-done-cc@latest
-   ```
-2. In Claude Code, run `/gsd-new-project` and point it at the specs:
+GSD Core (the [open-gsd](https://github.com/open-gsd/gsd-core) distribution —
+governance moved from the former upstream to open-gsd in 2026; see
+https://opengsd.net) is installed project-locally in `.claude/` and committed,
+so the `/gsd-*` commands are available in any Claude Code session on this
+repo. To update it later:
+
+```bash
+npx @opengsd/gsd-core@latest --claude --local
+```
+
+1. In Claude Code, run `/gsd-new-project` and point it at the specs:
    > "Read SPEC.md and PRINCIPLES.md in the repo root. They are the source
    > of truth for vision, requirements, phases, and engineering principles."
-3. GSD generates `.planning/` (PROJECT.md, REQUIREMENTS.md, ROADMAP.md),
+2. GSD generates `.planning/` (PROJECT.md, REQUIREMENTS.md, ROADMAP.md),
    then drives phases with `/gsd-plan-phase`, `/gsd-execute-phase`, and
    `/gsd-verify-work`.
 
