@@ -15,15 +15,15 @@ Five phases transform a raw Spotify listening history into a working A&R apprent
 ## Phase Details
 
 ### Phase 0: Data Rights + ADR Gate
-**Goal**: Every irreversible constraint is documented as an ADR and enforced by schema before any operational code is written
+**Goal**: Every irreversible constraint is documented in a committed ADR before any operational code is written (docs-only phase per operator decision; runnable enforcement moves to Phase 1)
 **Mode:** mvp
 **Depends on**: Nothing (first phase)
 **Requirements**: RIGHTS-01, RIGHTS-02, RIGHTS-03, RIGHTS-04
 **Success Criteria** (what must be TRUE):
-  1. Operator can complete Spotify PKCE OAuth flow using only history/library/playlist scopes and the scope choice is recorded in a committed ADR
-  2. Local-audio acquisition pipeline (Bandcamp/purchases/own stems) is documented in an ADR with a legal rationale visible to the operator
-  3. Lyrics derived-features-only policy is encoded in an ADR and enforced by a Pydantic schema that rejects full lyric text at the store boundary
-  4. Generation-model licenses (MusicGen CC-BY-NC, Stable Audio Open) and a local hardware benchmark gate are documented in ADRs before any generation dependency is installed
+  1. Spotify scope strategy (history/library/playlist scopes only, PKCE OAuth via Premium dev-mode app, GDPR-export fallback) is recorded in a committed ADR; OAuth implementation is explicitly assigned to Phase 1
+  2. Local-audio acquisition pipeline (existing owned collection + Bandcamp purchases going forward) is documented in an ADR with a legal rationale visible to the operator
+  3. Lyrics derived-features-only policy is encoded in an ADR, with the enforcing Pydantic schema explicitly assigned to Phase 1's store implementation
+  4. Generation-model licenses (MusicGen CC-BY-NC, Stable Audio Open) and the hardware benchmark PROCEDURE are documented in an ADR; the benchmark gate decision is deferred to Phase 4 start
 **Plans**: TBD
 
 ### Phase 1: Smallest Closed Loop
@@ -38,6 +38,7 @@ Five phases transform a raw Spotify listening history into a working A&R apprent
   4. Taste profile state is exported as human-readable versioned JSON in git after every committed update
   5. Every scheduled job emits a heartbeat; silent failures alert the operator; four consecutive skipped cycles trigger the kill-criterion flag; weekly operator overhead is measured and stays ≤20 minutes
 **Plans**: TBD
+**UI hint**: yes
 
 ### Phase 2: Local Analysis Engine
 **Goal**: Operator can extract acoustic features from owned audio, receive rhythm and layering reports, take weekly scored blind tests, and receive a training focus derived from their weakest blind-test dimension
