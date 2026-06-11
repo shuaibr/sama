@@ -29,7 +29,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **DISC-01**: Operator receives a Wednesday discovery digest of ≤15 tracks, each with `{hypothesis, expected_response}`, 2 listening prompts, and 1 anchor comparison to a mature genre
 - [ ] **DISC-02**: Operator receives a Monday ear report (blind-test results, profile drift, week's training focus)
-- [ ] **RESP-01**: Operator can log a ~30-second structured response per track (feel score, standout layer, would-replay)
+- [ ] **RESP-01**: Operator can log a ~30-second forced-choice response per track (`REPLAY / FINE / SKIP` + standout-layer tag, per OPERATIONS.md Rule 1); vetoes append one line to `docs/codex.md`
 - [ ] **RESP-02**: Responses update taste-profile weights in the next Monday cycle (listen-response feedback loop)
 
 ### Local Audio Analysis
@@ -66,6 +66,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **OPS-02**: Token/API/runtime budgets live in config, are enforced in code, and alert at 80%
 - [ ] **OPS-03**: Kill-criterion detector flags 4 consecutive skipped weekly cycles and recommends simplification
 - [ ] **OPS-04**: One-command setup and one-command run; weekly operator overhead measured and kept ≤20 minutes
+- [ ] **OPS-05**: Every digest recommendation is logged to `metrics/loop_closure.csv` (date, recommendation_id, pushed_at, acted Y/N, action_taken); weekly AOR is computed and AOR < 50% over 2 weeks flags the pipeline for demotion (OPERATIONS.md Rule 4)
 
 ## v2 Requirements
 
@@ -114,6 +115,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | OPS-02 | Phase 1 | Pending |
 | OPS-03 | Phase 1 | Pending |
 | OPS-04 | Phase 1 | Pending |
+| OPS-05 | Phase 1 | Pending |
 | AUDIO-01 | Phase 2 | Pending |
 | AUDIO-02 | Phase 2 | Pending |
 | AUDIO-03 | Phase 2 | Pending |
@@ -129,10 +131,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | GEN-02 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 30 total (note: REQUIREMENTS.md initialization counted 26; actual count is 30 — OPS section adds 4)
-- Mapped to phases: 30
+- v1 requirements: 31 total
+- Mapped to phases: 31
 - Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-06-10*
-*Last updated: 2026-06-10 after roadmap creation — traceability table complete*
+*Last updated: 2026-06-11 after spec pack v2 integration (OPERATIONS.md, framework-alignment) — RESP-01 forced-choice, OPS-05 AOR added*

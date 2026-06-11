@@ -1,9 +1,10 @@
-# Sonic A&R — Music Analysis & Taste Development System
+# Sama (سماع) — Music Studio: Analysis & Taste Development
 
 A personal music intelligence system that builds a taste profile from real
 listening history, runs structured discovery experiments across genres, and
 trains the operator's analytical ear through guided listening, blind tests,
-and local sound-sketch generation.
+and local sound-sketch generation. Formerly "Sonic A&R"; part of a six-repo
+agentic portfolio.
 
 ## Source of truth
 
@@ -12,6 +13,13 @@ and local sound-sketch generation.
 - [`PRINCIPLES.md`](PRINCIPLES.md) — non-negotiable engineering principles
   that apply to every phase (four-layer model, fundamentals, ecosystem
   mapping, closed-loop requirement, model tiering).
+- [`OPERATIONS.md`](OPERATIONS.md) — portfolio operating rules (forced-choice
+  outputs, ready-to-resume notes, WIP cap, AOR metric, meta-work quarantine,
+  learning loop). Canonical home is the workspace root above all repos; this
+  copy is for in-repo reference.
+- [`docs/framework-alignment.md`](docs/framework-alignment.md) — this repo's
+  loop contract: sense/decide/act/measure/improve stages, Gemini↔Claude
+  platform split, architecture gates, and capacity budgets.
 
 ## Working on this project with GSD
 

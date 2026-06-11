@@ -2,7 +2,7 @@
 
 ## Project
 
-**Sonic A&R — Music Analysis & Taste Development System**
+**Sama (سماع) — Music Studio: Analysis & Taste Development**
 
 A personal music intelligence system that builds a deep taste profile from the
 operator's real listening history, runs structured weekly discovery experiments
@@ -42,6 +42,26 @@ playlists, monetization) is a later byproduct.
 
 - **Model tiering**: orchestration/synthesis on frontier model, bulk
   extraction on cheapest adequate model; tier assignments in config.yaml
+
+- **Operations/Output (OPERATIONS.md Rule 1)**: action outputs are
+  forced-choice only — per-track reply is `REPLAY / FINE / SKIP` +
+  standout-layer tag; vetoes append one line to `docs/codex.md`; no
+  open-ended reports as action output
+
+- **Operations/Measure (OPERATIONS.md Rule 4)**: AOR (% of recommendations
+  acted on or vetoed within 48h) logged to `metrics/loop_closure.csv`;
+  AOR < 50% over 2 weeks demotes the pipeline from push to weekly digest
+
+- **Operations/Coordination**: single agent + output schema + operator veto
+  — no multi-agent orchestration (sequential task); no heavy orchestrators
+  (plain Python + SQLite + cron)
+
+- **Budget (framework-alignment §3)**: ≤ $1.00 CAD/week LLM spend, warn at
+  80%; LLM used only for digest narrative
+
+- **Research handoff (framework-alignment §2)**: discovery candidates come
+  ONLY from Gemini scene memos in `research/inbox/scenes/` + history-derived
+  seeds; memos land weekly before the Wednesday digest build
 <!-- GSD:project-end -->
 
 <!-- GSD:stack-start source:research/STACK.md -->

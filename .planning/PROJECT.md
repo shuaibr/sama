@@ -1,4 +1,8 @@
-# Sonic A&R — Music Analysis & Taste Development System
+# Sama (سماع) — Music Studio: Analysis & Taste Development
+
+> Formerly "Sonic A&R" — renamed in spec pack v2 (2026-06-11). Part of a
+> six-repo portfolio governed by `OPERATIONS.md`; this repo's loop contract
+> is `docs/framework-alignment.md`.
 
 ## What This Is
 
@@ -105,6 +109,21 @@ playlists, monetization) is a later byproduct.
   runs stateless; generated audio never mixed into the reference corpus
 - **Model tiering**: orchestration/synthesis on frontier model, bulk
   extraction on cheapest adequate model; tier assignments in config.yaml
+- **Operations/Output (OPERATIONS.md Rule 1)**: action outputs are
+  forced-choice only — per-track reply is `REPLAY / FINE / SKIP` +
+  standout-layer tag; vetoes append one line to `docs/codex.md`; no
+  open-ended reports as action output
+- **Operations/Measure (OPERATIONS.md Rule 4)**: AOR (% of recommendations
+  acted on or vetoed within 48h) logged to `metrics/loop_closure.csv`;
+  AOR < 50% over 2 weeks demotes the pipeline from push to weekly digest
+- **Operations/Coordination**: single agent + output schema + operator veto
+  — no multi-agent orchestration (sequential task); no heavy orchestrators
+  (plain Python + SQLite + cron)
+- **Budget (framework-alignment §3)**: ≤ $1.00 CAD/week LLM spend, warn at
+  80%; LLM used only for digest narrative
+- **Research handoff (framework-alignment §2)**: discovery candidates come
+  ONLY from Gemini scene memos in `research/inbox/scenes/` + history-derived
+  seeds; memos land weekly before the Wednesday digest build
 
 ## Key Decisions
 
@@ -116,6 +135,10 @@ playlists, monetization) is a later byproduct.
 | Comparative listening anchored in hip hop/R&B | Causality hypothesis: anchored comparison beats volume | — Pending |
 | Vertical MVP structure | Phase 1 must ship the smallest closed loop (sense → decide → act → measure → improve) per PRINCIPLES.md | — Pending |
 | Prediction-before-listen scoring | Forces falsifiable taste model; prediction accuracy is a named feedback loop | — Pending |
+| Forced-choice response format (REPLAY/FINE/SKIP + standout layer) supersedes the original feel-score form | OPERATIONS.md Rule 1 (veto interface); spec pack v2 framework-alignment Act row | — Pending |
+| AOR is the loop-closure metric, logged to metrics/loop_closure.csv | OPERATIONS.md Rule 4 — Measure row with teeth; 50%/48h thresholds revisable after 60 days of data | — Pending |
+| Single-agent architecture, no swarms, no heavy orchestrators | OPERATIONS.md Rule 1 + Do-Not-Do list; sequential pipeline (arXiv 2512.08296) | — Pending |
+| Portfolio status: PARKED per OPERATIONS.md Rule 3 (WIP cap = 1; flow is Active) | Planning artifacts prepared now; build work resumes when Active slot opens | — Pending |
 
 ## Evolution
 

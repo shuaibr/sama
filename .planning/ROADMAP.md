@@ -30,13 +30,14 @@ Five phases transform a raw Spotify listening history into a working A&R apprent
 **Goal**: Operator can complete one full weekly cycle — ingest, digest, respond, profile update, ear report — with silent-failure alerting and kill-criterion detection live from the first run
 **Mode:** mvp
 **Depends on**: Phase 0
-**Requirements**: INGEST-01, INGEST-02, INGEST-03, PROF-01, PROF-02, DISC-01, DISC-02, RESP-01, RESP-02, OPS-01, OPS-02, OPS-03, OPS-04
+**Requirements**: INGEST-01, INGEST-02, INGEST-03, PROF-01, PROF-02, DISC-01, DISC-02, RESP-01, RESP-02, OPS-01, OPS-02, OPS-03, OPS-04, OPS-05
 **Success Criteria** (what must be TRUE):
   1. Operator can run one command to ingest Spotify listening history (top/recent tracks, artists, library) into local SQLite, with every play event simultaneously mirrored to ListenBrainz and enriched with MusicBrainz metadata
-  2. Wednesday digest of ≤15 tracks arrives with a hypothesis, 2 listening prompts, and 1 anchor comparison per track; operator can log a ~30-second structured response (feel score, standout layer, would-replay) per track
+  2. Wednesday digest of ≤15 tracks arrives with a hypothesis, 2 listening prompts, and 1 anchor comparison per track; operator can log a ~30-second forced-choice response (`REPLAY / FINE / SKIP` + standout-layer tag) per track; digest candidates come only from scene memos in research/inbox/scenes/ + history-derived seeds
   3. Monday ear report reflects the prior week's responses and shows which listens moved which taste-profile dimension (evidence trail visible)
   4. Taste profile state is exported as human-readable versioned JSON in git after every committed update
   5. Every scheduled job emits a heartbeat; silent failures alert the operator; four consecutive skipped cycles trigger the kill-criterion flag; weekly operator overhead is measured and stays ≤20 minutes
+  6. Every digest recommendation is logged to metrics/loop_closure.csv with acted/vetoed status; weekly AOR is computed and surfaces in the Monday ear report (OPERATIONS.md Rule 4)
 **Plans**: TBD
 **UI hint**: yes
 

@@ -1,4 +1,4 @@
-# SPEC.md — Sonic A&R: Music Analysis & Taste Development System
+# SPEC.md — Sama (سماع): Music Studio — Analysis & Taste Development
 
 > GSD: read alongside PRINCIPLES.md. This project optimizes for SKILL
 > DEVELOPMENT (analytical ear, A&R judgment) first; money is a later
@@ -123,6 +123,14 @@ research department.
 - Agent → operator: Monday "ear report" — blind-test results, profile
   drift, this week's training focus.
 - (Phase 5+) Operator → community: monthly cross-cultural discovery essay.
+
+## Operations alignment (OPERATIONS.md governs)
+
+- **Action output:** forced-choice only (Rule 1) — schema in framework-alignment.md.
+- **Measure row = AOR** logged to `metrics/loop_closure.csv` (Rule 4).
+- **Coordination:** single agent + output schema + operator veto. No multi-agent.
+- Session hygiene: `reentry.md` on every stop (Rule 2); WIP cap (Rule 3) and
+  meta-work quarantine (Rule 5) apply.
 
 ## Phases
 
